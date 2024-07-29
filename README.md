@@ -16,7 +16,7 @@ I am developing with Kotlin but I need help with concepts.
 
 [Kotlin concepts](https://kotlinlang.org/docs/home.html)
 
-I want to check something in standard library documentation
+I want to check something in standard library documentation.
 
 [Kotlin stdlib documentation](https://kotlinlang.org/api/latest/jvm/stdlib/)
 
@@ -26,4 +26,4 @@ I need spring documentation with Kotlin examples.
 
 No worries, Spring and Spring boot documentation both provides Java and Kotlin samples :
 
-[https://docs.spring.io/spring-boot/index.html](Spring boot documentation)
+[Spring boot documentation](https://docs.spring.io/spring-boot/index.html)
