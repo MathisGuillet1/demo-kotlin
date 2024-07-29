@@ -1,5 +1,6 @@
 package com.qlik.demo.java;
 
+import com.qlik.demo.java.model.TrainDocument;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 

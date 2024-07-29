@@ -1,14 +1,18 @@
 package com.qlik.demo.java;
 
+import com.qlik.demo.java.model.SeatClass;
+import com.qlik.demo.java.model.Train;
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import java.util.List;
 
 @RestController
+@RequestMapping("trains")
 public class TrainController {
 
     private final TrainService trainService;
@@ -17,9 +21,11 @@ public class TrainController {
         this.trainService = trainService;
     }
 
+    // Find all trains with given destination and optionally filtered on seat class
     @GetMapping
-    public Train getTrainByName(@RequestParam @NotNull final String name) {
-        return trainService.getTrainByDestination(name)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "No train with name " + name + " could be found"));
+    public List<Train> getTrainsByDestination(@RequestParam @NotNull final String name, @RequestParam @Nullable final String seatClass) {
+        final var seatOption = seatClass != null ? SeatClass.get(seatClass).orElse(null) : null;
+
+        return trainService.getTrainByDestination(name, seatOption);
     }
 }
