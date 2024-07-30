@@ -2,7 +2,8 @@ package com.qlik.demo.kotlin.util
 
 import com.qlik.demo.kotlin.model.SeatOption
 import com.qlik.demo.kotlin.model.TrainDocument
-import org.assertj.core.api.Assertions.assertThat
+import org.amshove.kluent.shouldBeEqualTo
+import org.amshove.kluent.shouldNotBe
 import org.junit.jupiter.api.Test
 
 class KotlinModelMapperTest {
@@ -17,9 +18,11 @@ class KotlinModelMapperTest {
 
         val result = ModelMapper.convertToTrain(trainDocument)
 
-        assertThat(result).isNotNull()
-        assertThat(result.id).isEqualTo("testId")
-        assertThat(result.destination).isEqualTo("testDestination")
-        assertThat(result.seatOption).isEqualTo(SeatOption.ECONOMY)
+        result shouldNotBe null
+        with(result) {
+            id shouldBeEqualTo "testId"
+            destination shouldBeEqualTo "testDestination"
+            seatOption shouldBeEqualTo SeatOption.ECONOMY
+        }
     }
 }

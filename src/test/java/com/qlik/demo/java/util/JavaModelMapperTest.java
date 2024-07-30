@@ -9,7 +9,11 @@ class JavaModelMapperTest {
 
     @Test
     void canConvertDatabaseDocumentToDomainModel() {
-        final var trainDocument = new TrainDocument("testId", "testDestination", null);
+        final var trainDocument = new TrainDocument(
+                "testId",
+                "testDestination",
+                null
+        );
 
         final var result = ModelMapper.convert(trainDocument);
 
