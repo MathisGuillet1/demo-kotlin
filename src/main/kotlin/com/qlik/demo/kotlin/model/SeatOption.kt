@@ -1,4 +1,4 @@
-package com.qlik.demo.kotlin.solution.idiomatic.model
+package com.qlik.demo.kotlin.model
 
 enum class SeatOption(val optionName: String) {
     FIRST_CLASS("First Class"),

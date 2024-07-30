@@ -1,4 +1,4 @@
-package com.qlik.demo.kotlin.solution.idiomatic.model
+package com.qlik.demo.kotlin.model
 
 data class Train(
     val id: String,

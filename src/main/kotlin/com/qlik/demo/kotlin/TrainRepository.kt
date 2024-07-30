@@ -1,6 +1,6 @@
-package com.qlik.demo.kotlin.solution.idiomatic
+package com.qlik.demo.kotlin
 
-import com.qlik.demo.kotlin.solution.idiomatic.model.TrainDocument
+import com.qlik.demo.kotlin.model.TrainDocument
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.stereotype.Repository
 

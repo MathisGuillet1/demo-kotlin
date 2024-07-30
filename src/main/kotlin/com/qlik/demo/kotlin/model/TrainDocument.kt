@@ -1,4 +1,4 @@
-package com.qlik.demo.kotlin.solution.idiomatic.model
+package com.qlik.demo.kotlin.model
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
