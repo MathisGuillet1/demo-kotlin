@@ -1,6 +1,6 @@
 package com.qlik.demo.java;
 
-import com.qlik.demo.java.model.SeatClass;
+import com.qlik.demo.java.model.SeatOption;
 import com.qlik.demo.java.model.Train;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
@@ -21,11 +21,14 @@ public class TrainController {
         this.trainService = trainService;
     }
 
-    // Find all trains with given destination and optionally filtered on seat class
+    // Find all trains with given destination and optionally filtered on seat option
     @GetMapping
-    public List<Train> getTrainsByDestination(@RequestParam @NotNull final String name, @RequestParam @Nullable final String seatClass) {
-        final var seatOption = seatClass != null ? SeatClass.get(seatClass).orElse(null) : null;
+    public List<Train> getTrainsByDestination(
+            @RequestParam @NotNull final String destination,
+            @RequestParam @Nullable final String seatOptionParam
+    ) {
+        final var seatOption = seatOptionParam != null ? SeatOption.get(seatOptionParam).orElse(null) : null;
 
-        return trainService.getTrainByDestination(name, seatOption);
+        return trainService.getTrainByDestination(destination, seatOption);
     }
 }

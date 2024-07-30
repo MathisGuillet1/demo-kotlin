@@ -1,6 +1,6 @@
 package com.qlik.demo.java;
 
-import com.qlik.demo.java.model.SeatClass;
+import com.qlik.demo.java.model.SeatOption;
 import com.qlik.demo.java.model.Train;
 import com.qlik.demo.java.model.TrainDocument;
 import jakarta.annotation.Nullable;
@@ -17,13 +17,13 @@ public class TrainService {
         this.trainRepository = trainRepository;
     }
 
-    public List<Train> getTrainByDestination(final String destination, @Nullable final SeatClass seatClass) {
-        // For demo purpose (don't filter in memory :scream:)
+    public List<Train> getTrainByDestination(final String destination, @Nullable final SeatOption seatOption) {
+        // Filtering in memory for the sake of the demo :scream:
         return trainRepository.findAll()
                 .stream()
                 .filter(train -> {
-                    if (seatClass != null) {
-                        return destination.equals(train.destination()) && seatClass == train.seatClass();
+                    if (seatOption != null) {
+                        return destination.equals(train.destination()) && seatOption == train.seatOption();
                     } else {
                         return destination.equals(train.destination());
                     }
@@ -32,7 +32,11 @@ public class TrainService {
                 .toList();
     }
 
-    public static Train convert(final TrainDocument trainDocument) {
-        return new Train(trainDocument.id(), trainDocument.destination(), trainDocument.seatClass());
+    public static Train convert(final TrainDocument document) {
+        return new Train(
+                document.id(),
+                document.destination(),
+                document.seatOption()
+        );
     }
 }
