@@ -1,10 +1,17 @@
-# From Java to Kotlin
+# Workshop from Java to Kotlin
+
+This material in this repository is intended to be used for the sake of a workshop demonstration for people willing to
+move from Java to Kotlin.   
+It provides some sample code written in Java and an equivalent written in Kotlin.
+
+The goal of this repository is **NOT** to demonstrate a Spring Boot project with great standards. All code is written
+only for the sake of showcasing differences.
 
 ## Kotlin in 15 minutes for JVM developers
 
 I am new to Kotlin and I am a Java/Scala developer, I need to understand the basics.
 
-I have only 15 minutes to start coding with Kotlin :
+I have only 15 minutes to start reading Kotlin code :
 
 [Kotlin basics in 15 minutes](https://kotlinlang.org/docs/basic-syntax.html#creating-classes-and-instances)
 or

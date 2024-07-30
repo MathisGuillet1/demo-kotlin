@@ -2,8 +2,8 @@ package com.qlik.demo.kotlin.util
 
 import com.qlik.demo.kotlin.model.SeatOption
 import com.qlik.demo.kotlin.model.TrainDocument
-import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldNotBe
+import org.amshove.kluent.`should be equal to`
+import org.amshove.kluent.`should not be`
 import org.junit.jupiter.api.Test
 
 class KotlinModelMapperTest {
@@ -18,11 +18,11 @@ class KotlinModelMapperTest {
 
         val result = ModelMapper.convertToTrain(trainDocument)
 
-        result shouldNotBe null
+        result `should not be` null
         with(result) {
-            id shouldBeEqualTo "testId"
-            destination shouldBeEqualTo "testDestination"
-            seatOption shouldBeEqualTo SeatOption.ECONOMY
+            id `should be equal to` "testId"
+            destination `should be equal to` "testDestination"
+            seatOption `should be equal to` SeatOption.ECONOMY
         }
     }
 }
