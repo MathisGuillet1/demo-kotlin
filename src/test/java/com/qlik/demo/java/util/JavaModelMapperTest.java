@@ -1,5 +1,6 @@
 package com.qlik.demo.java.util;
 
+import com.qlik.demo.java.model.SeatOption;
 import com.qlik.demo.java.model.TrainDocument;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ class JavaModelMapperTest {
         final var trainDocument = new TrainDocument(
                 "testId",
                 "testDestination",
-                null
+                SeatOption.ECONOMY
         );
 
         final var result = ModelMapper.convert(trainDocument);
@@ -20,6 +21,6 @@ class JavaModelMapperTest {
         assertThat(result).isNotNull();
         assertThat(result.id()).isEqualTo("testId");
         assertThat(result.destination()).isEqualTo("testDestination");
-        assertThat(result.seatOption()).isNull();
+        assertThat(result.seatOption()).isEqualTo(SeatOption.ECONOMY);
     }
 }

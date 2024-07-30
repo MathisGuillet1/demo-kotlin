@@ -1,5 +1,6 @@
 package com.qlik.demo.kotlin
 
+import com.qlik.demo.kotlin.model.Booking
 import com.qlik.demo.kotlin.model.SeatOption
 import com.qlik.demo.kotlin.model.Train
 import com.qlik.demo.kotlin.util.TokenUtil
@@ -27,7 +28,7 @@ class TrainController(private val trainService: TrainService) {
     }
 
     @GetMapping("/bookings")
-    fun getUserBookings(): List<com.qlik.demo.kotlin.model.Booking> {
+    fun getUserBookings(): List<Booking> {
         val userId = TokenUtil.extractUserId() ?: throw IllegalStateException("Cannot extract user id from token")
 
         return trainService.getBookingsByUser(userId)
