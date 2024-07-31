@@ -19,7 +19,7 @@ or
 
 ## Kotlin Documentation
 
-I am developing with Kotlin but I need help with concepts.
+I am developing with Kotlin and I need help with concepts.
 
 [Kotlin concepts](https://kotlinlang.org/docs/home.html)
 
