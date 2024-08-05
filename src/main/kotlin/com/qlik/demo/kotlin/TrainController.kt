@@ -22,7 +22,7 @@ class TrainController(private val trainService: TrainService) {
     ): List<Train> {
         logger.info("Fetching trains with destination $destination and seat option $seatOptionParam")
 
-        val seatOption = seatOptionParam?.let { SeatOption.get(seatOptionParam) }
+        val seatOption = seatOptionParam?.let { SeatOption.from(seatOptionParam) }
 
         return trainService.getTrainByDestination(destination, seatOption)
     }

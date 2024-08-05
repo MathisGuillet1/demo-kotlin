@@ -5,7 +5,7 @@ enum class SeatOption(val optionName: String) {
     ECONOMY("Economy");
 
     companion object {
-        fun get(optionName: String): SeatOption? =
+        fun from(optionName: String): SeatOption? =
             entries.firstOrNull { it.optionName == optionName }
     }
 }

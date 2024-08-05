@@ -36,7 +36,7 @@ public class TrainController {
         logger.info("Fetching trains with destination {} and seat option {}", destination, seatOptionParam);
 
         final var seatOption = seatOptionParam != null
-                ? SeatOption.get(seatOptionParam).orElse(null)
+                ? SeatOption.from(seatOptionParam).orElse(null)
                 : null;
 
         return trainService.getTrainByDestination(destination, seatOption);

@@ -14,7 +14,7 @@ public enum SeatOption {
     }
 
     // Reverse lookup
-    public static Optional<SeatOption> get(final String name) {
+    public static Optional<SeatOption> from(final String name) {
         return Arrays.stream(SeatOption.values())
                 .filter(seatClass -> seatClass.optionName.equals(name))
                 .findFirst();
