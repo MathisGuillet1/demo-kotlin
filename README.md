@@ -1,17 +1,25 @@
-# Workshop from Java to Kotlin
+# Workshop: From Java to Kotlin
 
-This material in this repository is intended to be used for the sake of a workshop demonstration for people willing to
-move from Java to Kotlin.   
-It provides some sample code written in Java and an equivalent written in Kotlin.
+The code contained in this repository is intended to be used for the sake of a workshop demonstration for people willing
+to move from Java to Kotlin.
+
+It provides code samples written in Java and their equivalent written in Kotlin.
 
 The goal of this repository is **NOT** to demonstrate a Spring Boot project with great standards. All code is written
-only for the sake of showcasing differences.
+only for the sake of showcasing differences between the two languages.
+
+Languages versions used in this repository:
+
+* Java: 21
+* Kotlin: 2.0.0
+
+The project was bootstrapped with [spring initilizr](https://start.spring.io/) (Spring Boot v3.3.2).
 
 ## Kotlin in 15 minutes for JVM developers
 
-I am new to Kotlin and I am a Java/Scala developer, I need to understand the basics.
+Here are some resources useful for Java/Scala/Groovy developers.
 
-I have only 15 minutes to start reading Kotlin code :
+If you have only 15 minutes to start reading Kotlin code:
 
 [Kotlin basics in 15 minutes](https://kotlinlang.org/docs/basic-syntax.html#creating-classes-and-instances)
 or
@@ -19,18 +27,17 @@ or
 
 ## Kotlin Documentation
 
-I am developing with Kotlin and I need help with concepts.
+To help you to start with Kotlin, you can check Kotlin Basics from the official documentation.
 
 [Kotlin concepts](https://kotlinlang.org/docs/home.html)
 
-I want to check something in standard library documentation.
+Also, you can check the standard library documentation.
 
 [Kotlin stdlib documentation](https://kotlinlang.org/api/latest/jvm/stdlib/)
 
 ## Kotlin and Spring
 
-I need spring documentation with Kotlin examples.
-
-No worries, Spring and Spring boot documentation both provides Java and Kotlin samples :
+If you are willing to write Kotlin for a Spring Boot application, both Spring and Spring Boot documentation provide Java
+and Kotlin samples:
 
 [Spring boot documentation](https://docs.spring.io/spring-boot/index.html)
