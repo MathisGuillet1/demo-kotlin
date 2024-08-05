@@ -1,7 +1,16 @@
 package com.qlik.demo.java.showcase;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
+import org.springframework.security.web.SecurityFilterChain;
+
 import java.util.Map;
 import java.util.Optional;
+
+import static org.springframework.security.authorization.AuthorityAuthorizationManager.hasAuthority;
 
 // Just showcasing stuff
 public class Showcase {
@@ -26,4 +35,25 @@ public class Showcase {
 }
 
 record User(String name, String email) {
+}
+
+@Configuration
+@EnableWebSecurity
+class SecurityConfiguration {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/health/**").permitAll()
+                        .requestMatchers("/metrics").access(hasAuthority("metrics:read"))
+                        .anyRequest().authenticated()
+                )
+                .csrf(CsrfConfigurer::disable)
+                .oauth2ResourceServer(oauth2 -> oauth2
+                        .jwt(jwt -> jwt
+                                .jwkSetUri("https://idp.example.com/.well-known/jwks.json")
+                        )
+                );
+        return http.build();
+    }
 }

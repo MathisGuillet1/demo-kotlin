@@ -1,6 +1,13 @@
 package com.qlik.demo.kotlin.showcase
 
-// JUst showcasing stuff
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+import org.springframework.security.config.annotation.web.invoke
+import org.springframework.security.web.SecurityFilterChain
+
+// Just showcasing stuff
 class Showcase {
 
     private val usersById = mapOf(
@@ -21,3 +28,27 @@ class Showcase {
 }
 
 data class User(val userId: String, val email: String)
+
+@Configuration
+@EnableWebSecurity
+class SecurityConfiguration {
+    // Create filter chain with type safe builder
+    @Bean
+    fun apiFilterChain(http: HttpSecurity): SecurityFilterChain {
+        http {
+            authorizeRequests {
+                authorize("/health/**", permitAll)
+                authorize("/metrics", hasAuthority("metrics:read"))
+                authorize(anyRequest, authenticated)
+            }
+            csrf { disable() }
+            oauth2ResourceServer {
+                jwt {
+                    jwkSetUri = "https://idp.example.com/.well-known/jwks.json"
+                }
+            }
+        }
+
+        return http.build()
+    }
+}
