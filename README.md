@@ -11,7 +11,7 @@ only for the sake of showcasing differences between the two languages.
 Languages versions used in this repository:
 
 * Java: 21
-* Kotlin: 2.0.0
+* Kotlin: 2.0.10
 
 The project was bootstrapped with [spring initilizr](https://start.spring.io/) (Spring Boot v3.3.2).
 
